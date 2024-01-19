@@ -1,6 +1,5 @@
 import nodeResolve from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
-import replace from '@rollup/plugin-replace';
 import html from '@web/rollup-plugin-html';
 import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets';
 import esbuild from 'rollup-plugin-esbuild';
@@ -25,6 +24,7 @@ export default {
       minify: true,
       injectServiceWorker: true,
       serviceWorkerPath: 'dist/sw.js',
+      publicPath: '/runedle/'
     }),
     /** Resolve bare module imports */
     nodeResolve(),
@@ -38,10 +38,6 @@ export default {
     /** Copy static assets */
     copy({
       patterns: ['assets/**/*'],
-    }),
-    /** Replace base path */
-    replace({
-      '<base href="/" />': '<base href="/runedle/" />'
     }),
     /** Minify html and css tagged template literals */
     babel({
