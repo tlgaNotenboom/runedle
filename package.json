@@ -14,6 +14,7 @@
     "storybook:build": "tsc && npm run analyze -- --exclude dist && build-storybook",
     "build": "rimraf dist && tsc && rollup -c rollup.config.js && npm run analyze -- --exclude dist",
     "build:ci": "rimraf _site && tsc && rollup -c rollup.config.js && npm run analyze -- --exclude _site",
+    "rimraf": "./node_modules/rimraf/bin.js",
     "start:build": "web-dev-server --root-dir dist --app-index index.html --open",
     "analyze": "cem analyze --litelement",
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\""
