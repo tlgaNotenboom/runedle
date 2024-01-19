@@ -1,9 +1,11 @@
 import nodeResolve from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
+import replace from '@rollup/plugin-replace';
 import html from '@web/rollup-plugin-html';
 import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets';
 import esbuild from 'rollup-plugin-esbuild';
 import { generateSW } from 'rollup-plugin-workbox';
+import { copy } from '@web/rollup-plugin-copy';
 import path from 'path';
 
 export default {
@@ -33,6 +35,14 @@ export default {
     }),    
     /** Bundle assets references via import.meta.url */
     importMetaAssets(),
+    /** Copy static assets */
+    copy({
+      patterns: ['assets/**/*'],
+    }),
+    /** Replace base path */
+    replace({
+      '<base href="/" />': '<base href="/runedle/" />'
+    }),
     /** Minify html and css tagged template literals */
     babel({
       plugins: [
