@@ -6,7 +6,7 @@
             "race": "Human",
             "region": "Misthalin",
             "combatLevel": "144",
-            "releaseDate": "2005-06-06"
+            "releaseDate": "2005"
         },
         {
           "name": "Hans",
@@ -15,6 +15,70 @@
           "region": "Misthalin",
           "combatLevel": "N/A",
           "releaseDate": "2001"
-        }
+        },
+      {
+        "name": "Konar",
+        "gender": "Female",
+        "race": "Kahlith",
+        "region": "Mount Karuulm",
+        "combatLevel": "N/A",
+        "releaseDate": "2019"
+      },
+      {
+        "name": "Cerberus",
+        "gender": "Female",
+        "race": "Hellhound",
+        "region": "Asgarnia",
+        "combatLevel": "318",
+        "releaseDate": "2015"
+      },
+      {
+        "name": "Ghommal",
+        "gender": "Male",
+        "race": "Human",
+        "region": "Asgarnia",
+        "combatLevel": "N/A",
+        "releaseDate": "2006"
+      },
+      {
+        "name": "Crazy Archaeologist",
+        "gender": "Male",
+        "race": "Human",
+        "region": "Wilderness",
+        "combatLevel": "204",
+        "releaseDate": "2014"
+      },
+      {
+        "name": "Necrovarus",
+        "gender": "Male",
+        "race": "Ghost",
+        "region": "Morytania",
+        "combatLevel": "N/A",
+        "releaseDate": "2005"
+      },
+      {
+        "name": "Bloat",
+        "gender": "Female",
+        "race": "Undead",
+        "region": "Morytania",
+        "combatLevel": "870",
+        "releaseDate": "2018"
+      },
+      {
+        "name": "Trobin Arceuus",
+        "gender": "Male",
+        "race": "Citizen of Arceuus",
+        "region": "Kourend",
+        "combatLevel": "N/A",
+        "releaseDate": "2019"
+      },
+      {
+        "name": "Apmeken",
+        "gender": "Female",
+        "race": "Baboon",
+        "region": "Desert",
+        "combatLevel": "N/A",
+        "releaseDate": "2022"
+      }
     ]
 }
