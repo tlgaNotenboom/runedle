@@ -24,7 +24,6 @@ export default {
       minify: true,
       injectServiceWorker: true,
       serviceWorkerPath: 'dist/sw.js',
-      publicPath: '/runedle/'
     }),
     /** Resolve bare module imports */
     nodeResolve(),
