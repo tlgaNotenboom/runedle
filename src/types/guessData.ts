@@ -1,8 +1,4 @@
-export enum GuessDataOptions {
-  CORRECT = 'correct',
-  PARTIAL = 'partial',
-  INCORRECT = 'incorrect',
-}
+export type GuessDataOptions = 'correct' | 'partial' | 'incorrect';
 
 export type GuessData = {
   gender: GuessDataOptions;
