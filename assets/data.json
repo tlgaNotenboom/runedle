@@ -1,0 +1,12 @@
+{
+    "npcs": [
+        {
+            "name": "Wise Old Man",
+            "gender": "Male",
+            "race": "Human",
+            "region": "Misthalin",
+            "combatLevel": "144",
+            "releaseDate": "2005-06-06"
+        }
+    ]
+}

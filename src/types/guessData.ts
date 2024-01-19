@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-shadow
 export enum GuessDataOptions {
   CORRECT = 'correct',
   PARTIAL = 'partial',

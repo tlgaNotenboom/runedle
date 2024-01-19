@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from '../css/styles.js';
 import { GuessData, GuessDataOptions } from '../types/guessData.js';
@@ -14,7 +14,15 @@ export class Guess extends LitElement {
     releaseDate: GuessDataOptions.INCORRECT,
   };
 
-  static styles = styles;
+  static styles = [
+    styles, 
+    css`
+      .attributes {
+        display: flex;
+        justify-content: center;
+      }
+    `
+  ];
 
   render() {
     return html`
