@@ -13,6 +13,7 @@
     "storybook": "tsc && npm run analyze -- --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
     "storybook:build": "tsc && npm run analyze -- --exclude dist && build-storybook",
     "build": "rimraf dist && tsc && rollup -c rollup.config.js && npm run analyze -- --exclude dist",
+    "build:ci": "rimraf _site && tsc && rollup -c rollup.config.js && npm run analyze -- --exclude _site",
     "start:build": "web-dev-server --root-dir dist --app-index index.html --open",
     "analyze": "cem analyze --litelement",
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\""
