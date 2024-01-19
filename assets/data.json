@@ -7,6 +7,14 @@
             "region": "Misthalin",
             "combatLevel": "144",
             "releaseDate": "2005-06-06"
+        },
+        {
+          "name": "Hans",
+          "gender": "Male",
+          "race": "Human",
+          "region": "Misthalin",
+          "combatLevel": "N/A",
+          "releaseDate": "2001"
         }
     ]
 }

@@ -40,6 +40,9 @@ export const styles = css`
   .attributes > :nth-child(5) {
     animation-delay: 2s;
   }
+  .attributes > :nth-child(6) {
+    animation-delay: 2.5s;
+  }
 
   @keyframes flip {
     0% {
