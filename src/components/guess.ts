@@ -92,5 +92,14 @@ export class Guess extends LitElement {
     } else {
       this.guessData.releaseDate = 'incorrect';
     }
+    this.dispatchEvent(
+      new CustomEvent('guess-made', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          correctlyGuessed: this.guessNPC?.name === this.correctNPC?.name,
+        },
+      })
+    );
   }
 }
