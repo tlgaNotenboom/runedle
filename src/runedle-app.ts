@@ -1,13 +1,11 @@
-import { LitElement, html, css } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { css, html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import { styles } from './css/styles.js';
 
 const bufferTime = 3;
 
 @customElement('runedle-app')
 export class RunedleApp extends LitElement {
-  @property({ type: String }) header = 'Runedle';
-
   static styles = [
     styles,
     css`
@@ -17,6 +15,8 @@ export class RunedleApp extends LitElement {
       }
     `,
   ];
+
+  @property({ type: String }) header = 'Runedle';
 
   @property()
   private correctGuess: boolean = false;

@@ -1,19 +1,10 @@
-import { LitElement, html, css } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { NPC, Response } from '../types/response.js';
 import { styles } from '../css/styles.js';
 
 @customElement('runedle-game')
 export class Game extends LitElement {
-  @property({ attribute: false })
-  private chosenNpc?: NPC;
-
-  @property({ attribute: false })
-  private npcs: NPC[] = [];
-
-  @property()
-  private guesses: NPC[] = [];
-
   static styles = [
     styles,
     css`
@@ -42,6 +33,15 @@ export class Game extends LitElement {
     `,
   ];
 
+  @property({ attribute: false })
+  private chosenNpc?: NPC;
+
+  @property({ attribute: false })
+  private npcs: NPC[] = [];
+
+  @property()
+  private guesses: NPC[] = [];
+
   override async connectedCallback() {
     super.connectedCallback?.();
     const data = await fetch('/assets/data.json');
@@ -54,12 +54,20 @@ export class Game extends LitElement {
     return html`
       <div class="game">
         <runedle-header></runedle-header>
-        <p>${this.chosenNpc!.name}</p>
-        <select class="guessing-input" @change="${this.addGuess}">
-          ${this.npcs?.map(
-            i => html` <option value=${i.name}>${i.name}</option>`
-          )}
-        </select>
+        <input
+          id="npc-input"
+          type="text"
+          placeholder="Make a guess"
+          list="npcList"
+          autocomplete="off"
+          @keypress="${this.keyPressed}"
+        />
+        <button @click="${this.processGuess}">submit</button>
+        <datalist id="npcList">
+          ${this.npcs
+            ?.filter(x => !x.disabled)
+            .map(i => html` <option value=${i.name}>${i.name}</option>`)}
+        </datalist>
         <div class="attributes">
           <div>
             <span>Name</span>
@@ -92,10 +100,27 @@ export class Game extends LitElement {
     `;
   }
 
-  addGuess(e: Event & { target: HTMLSelectElement }) {
-    const npcGuess = this.npcs.find(
-      npc => npc.name.toLowerCase() === e.target.value.toLowerCase()
-    );
-    this.guesses = [...this.guesses, npcGuess!];
+  keyPressed(e: KeyboardEvent) {
+    if (e.key === 'Enter') {
+      this.processGuess();
+    }
+  }
+
+  processGuess() {
+    const guessElement = this.renderRoot.querySelector(
+      '#npc-input'
+    ) as HTMLInputElement;
+    if (guessElement) {
+      const npcGuess = this.npcs.find(
+        npc =>
+          npc.name.toLowerCase() === guessElement.value.toLowerCase() &&
+          !npc.disabled
+      );
+      if (npcGuess) {
+        this.guesses = [...this.guesses, npcGuess];
+        npcGuess.disabled = true;
+        guessElement.value = '';
+      }
+    }
   }
 }

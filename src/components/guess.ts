@@ -1,4 +1,4 @@
-import { LitElement, css, html } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from '../css/styles.js';
 import { NPC } from '../types/response.js';
@@ -6,6 +6,16 @@ import { GuessData } from '../types/guessData.js';
 
 @customElement('runedle-guess')
 export class Guess extends LitElement {
+  static styles = [
+    styles,
+    css`
+      .attributes {
+        display: flex;
+        justify-content: center;
+      }
+    `,
+  ];
+
   correctNPC?: NPC;
 
   @property()
@@ -19,16 +29,6 @@ export class Guess extends LitElement {
     combatLevel: 'incorrect',
     releaseDate: 'incorrect',
   };
-
-  static styles = [
-    styles,
-    css`
-      .attributes {
-        display: flex;
-        justify-content: center;
-      }
-    `,
-  ];
 
   render() {
     this.compareAttributes();

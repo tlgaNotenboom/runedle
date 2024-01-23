@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 @customElement('runedle-header')
@@ -17,10 +17,10 @@ export class Header extends LitElement {
 
   render() {
     return html`
-          <div class="logo"><p>
-            Runedle
-          </p>
-          </div>
+      <div class="logo"><p>
+        Runedle
+      </p>
+      </div>
       </div>
     `;
   }

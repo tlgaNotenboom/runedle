@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 @customElement('runedle-game-over')
@@ -17,12 +17,12 @@ export class GameOver extends LitElement {
 
   render() {
     return html`
-        <div>
-          <runedle-header></runedle-header>
-          <div class="congratulations">
-            <p>Congratulations!</p>
-          </div>
-      </main>
+      <div>
+        <runedle-header></runedle-header>
+        <div class="congratulations">
+          <p>Congratulations!</p>
+        </div>
+        </main>
     `;
   }
 }
